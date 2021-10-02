@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli');
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    /* Centers everything horizontally*/
+    align-items: center; 
+    /* Centers everything vertically - if height is provided*/
+    justify-content: center; 
+    /* vh - viewport height - take up full height of viewport */
+    height: 100vh;
+    margin: 0;
+}
+
+.container{
+    /* So anything inside the container will get arranged inside a flex box */
+    display: flex;
+    /* vh - viewport width - take up 90% width of viewport */
+    width: 90vw;
+}
+
+.panel{
+    /* Preserve rounded corner on large screeb - background-size: cover */
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 50px;
+    color: #ffffff;
+    cursor: pointer;
+    flex: 0.5;
+    margin: 10px;
+    position: relative;
+    transition: flex 0.7s ease-in;
+}
+
+.panel h3{
+    font-size: 24px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    opacity: 0;
+}
+
+.panel.active{
+    flex: 5;
+}
+
+.panel.active h3{
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+}
+
+@media(max-width: 550px){
+    .container{
+        width: 100vw;
+    }
+    /* Removing last 2 panels -sudo selector */
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5){
+        display: none;
+    }
+}
